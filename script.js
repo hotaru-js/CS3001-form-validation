@@ -13,6 +13,11 @@ document.getElementById("userform").addEventListener("submit", function (e) {
   document.querySelectorAll(".error").forEach((el) => {
     el.textContent = "";
     el.style.display = "none";
+    const relatedInputId = el.id.replace("Err", "");
+    const relatedInput = document.getElementById(relatedInputId);
+    if (relatedInput) {
+      relatedInput.style.border = "";
+    }
   });
 
   let valid = true;
@@ -25,6 +30,7 @@ document.getElementById("userform").addEventListener("submit", function (e) {
     nameErr.textContent =
       "Name should contain at least 3 characters and only alphabetical";
     nameErr.style.display = "block";
+    document.getElementById("name").style.border = "2px solid #ff0000";
     valid = false;
   }
 
@@ -33,6 +39,7 @@ document.getElementById("userform").addEventListener("submit", function (e) {
     const phoneErr = document.getElementById("phoneErr");
     phoneErr.textContent = "Phone number should contain 10 digits";
     phoneErr.style.display = "block";
+    document.getElementById("phone").style.border = "2px solid #ff0000";
     valid = false;
   }
 
@@ -41,6 +48,7 @@ document.getElementById("userform").addEventListener("submit", function (e) {
     const emailErr = document.getElementById("emailErr");
     emailErr.textContent = "Ensure your email is correct!";
     emailErr.style.display = "block";
+    document.getElementById("email").style.border = "2px solid #ff0000";
     valid = false;
   }
 
@@ -49,6 +57,7 @@ document.getElementById("userform").addEventListener("submit", function (e) {
     const addressErr = document.getElementById("addressErr");
     addressErr.textContent = "Insufficient address length!";
     addressErr.style.display = "block";
+    document.getElementById("address").style.border = "2px solid #ff0000";
     valid = false;
   }
 
@@ -57,6 +66,7 @@ document.getElementById("userform").addEventListener("submit", function (e) {
     const ageErr = document.getElementById("ageErr");
     ageErr.textContent = "Age must be between 18 and 25!";
     ageErr.style.display = "block";
+    document.getElementById("age").style.border = "2px solid #ff0000";
     valid = false;
   }
 
